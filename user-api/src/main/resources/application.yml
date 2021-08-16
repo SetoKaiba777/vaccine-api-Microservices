@@ -1,0 +1,27 @@
+server:
+  port:
+    8000
+spring:
+  application:
+    name: user-service
+  datasource:
+    driver-class-name:
+    url: jdbc:mysql://localhost:3306/user_service?useTimezone=true&serverTimezone=UTC
+    username: root
+    password: root
+  jackson:
+    default-property-inclusion: NON_NULL
+    serialization:
+      fail-on-empty-beans: false
+  jpa:
+    hibernate:
+      dll-auto: update
+    show-sql: true
+    propertoes:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL51nnoDBDialect
+  flyway:
+    url: jdbc:mysql://localhost:3306/
+    schemas: user_service
+    user: root
+    password: root
