@@ -8,16 +8,22 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="vaccine-api" />
+        <module name="api-gateway" />
         <module name="user-api" />
+        <module name="naming-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api-gateway" target="11" />
+      <module name="naming-server" target="11" />
       <module name="user-api" target="11" />
       <module name="vaccine-api" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
+      <module name="naming-server" options="-parameters" />
       <module name="user-api" options="-parameters" />
       <module name="vaccine-api" options="-parameters" />
     </option>
