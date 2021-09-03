@@ -43,4 +43,8 @@ public class UserController {
     public void delete(@PathVariable Long id){
         userService.removeUser(id);
     }
+
+    public String fallbackMethod(Exception ex){
+        return "Error in your Requisition, try again";
+    }
 }

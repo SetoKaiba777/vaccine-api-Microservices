@@ -1,6 +1,7 @@
 package com.kaibacorp.userapi.Api.exceptionHandler;
 
 import com.kaibacorp.userapi.Domain.exception.DontFoundEntityException;
+import com.kaibacorp.userapi.Domain.exception.RequisitionException;
 import com.kaibacorp.userapi.Domain.exception.ServiceException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,13 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(DontFoundEntityException.class)
     public ResponseEntity<Object> handleDontFoundEntityException(DontFoundEntityException ex, WebRequest request) {
         var status = HttpStatus.NOT_FOUND;
+        Problem problem = problemSet(ex.getMessage(), status);
+        return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
+    }
+
+    @ExceptionHandler(RequisitionException.class)
+    public ResponseEntity<Object> handleRequisitionException(RequisitionException ex, WebRequest request) {
+        var status = HttpStatus.BAD_REQUEST;
         Problem problem = problemSet(ex.getMessage(), status);
         return handleExceptionInternal(ex, problem, new HttpHeaders(), status, request);
     }

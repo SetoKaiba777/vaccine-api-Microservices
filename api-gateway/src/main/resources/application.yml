@@ -7,3 +7,17 @@ eureka:
 spring:
   application:
     name: api-gateway
+  cloud:
+    gateway:
+      locator:
+        enabled: true
+        lower-case-service-id:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+          - Path=/user-service/**
+        - id: vaccine-service
+          uri: lb://vaccine-service
+          predicates:
+          - Path=/vaccine-service/**
