@@ -36,3 +36,6 @@ spring:
     schemas: vaccine_service
     user: root
     password: root
+springdoc:
+  api-docs:
+    path: vaccine-service/v3/api-docs

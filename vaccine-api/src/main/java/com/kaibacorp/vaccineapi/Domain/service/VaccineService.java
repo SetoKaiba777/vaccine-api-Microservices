@@ -38,7 +38,7 @@ public class VaccineService {
     public Vaccine addVac(Vaccine vaccine) {
         var id = vaccine.getUserId();
         try{
-        var user = userProxy.findUser(id);}
+            var user = userProxy.findUser(id);}
         catch (FeignException.FeignClientException e){
             throw new DontFoundEntityException("This user don't found in our database");
         }
